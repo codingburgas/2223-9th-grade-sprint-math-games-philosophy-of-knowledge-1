@@ -2,10 +2,21 @@
 #include <string>
 using namespace std;
 
-int main() 
+class Number
 {
-   srand(time(NULL));
-   int randomNumber = rand() % 30;
-    Number number("", "");
+public:
+    string NumberToConvert;
+    string System;
 
-} 
+    Number(string numberToConvert, string system)
+    {
+        NumberToConvert = numberToConvert;
+        System = system;
+    }
+};
+
+int main()
+{
+    srand(time(NULL));
+    int randomNumber = rand() % 30;
+}
