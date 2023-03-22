@@ -26,6 +26,11 @@ int BitwiseOrFunction()
     return (number1.NumberToConvert | number2.NumberToConvert);
 }
 
+int BitwiseXorFunction()
+{
+    return (number1.NumberToConvert ^ number2.NumberToConvert);
+}
+
 
 //
 //default_random_engine generator;
