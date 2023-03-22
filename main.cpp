@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <list>
 #include <main.h>
 using namespace std;
 
@@ -17,10 +16,13 @@ public:
     }
 };
 
+//0001 & 0000
+//0000
 int BitwiseAndFunction()
 {
     return (number1.NumberToConvert & number2.NumberToConvert);
 }
+
 int BitwiseOrFunction()
 {
     return (number1.NumberToConvert | number2.NumberToConvert);
@@ -31,10 +33,6 @@ int BitwiseXorFunction()
     return (number1.NumberToConvert ^ number2.NumberToConvert);
 }
 
-int BitwiseComplementFunction()
-{
-    return (number1.NumberToConvert ~ number2.NumberToConvert);
-}
 
 //
 //default_random_engine generator;
@@ -48,19 +46,19 @@ int main()
 {
     //note : to change the generator
     srand(time(NULL));
-    int randomNumber = rand() % 30;
-    Number number1("", "", "");
-    Number number2("", "", "");
+    int randomNumberGenerator = rand() % 30;
+    Number number1("", "");
+    Number number2("", "");
     int answerSystemGenerator = rand() % 2; 
-    
+    int bitwiseOperationGenerator = rand() % 3; 
     string answerSystem = "";
-    list<string> userInput;
-    list<string> correctAnswer; 
+    string answer = "";
+    
         // (2) -> binary
         // (10) -> decimal
         // (16) -> hexadecimal
         
-    switch (randomNumber)
+    switch (randomNumberGenerator)
     {
         
         case 0:
@@ -275,13 +273,31 @@ int main()
     }
 
 
+switch(bitwiseOperationGenerator)
+{
+    case 0:
+    cout << "Add these two numbers: ";
+    answer = BitwiseAndFunction();
+    break;
+     
+    case 1:
+    cout << "Or these two numbers: ";
+    answer = BitwiseOrFunction();
+
+    break;
+    
+    case 2:
+    cout << "XOR these two numbers: ";
+    answer = BitwiseXorFunction();
+    break;
+}
 
     switch(answerSystemGenerator)
     {
         case 0:
         if (number1.System == "(2)")
         {
-            answerSystem = "(16)";      
+            answerSystem = "(16)";
         }
         else if (number1.System == "(10)")
         {
@@ -308,8 +324,6 @@ int main()
         } 
         break;
     }
-
-    cout << randomNumber << "is your number, please convert it to the " << randomAnswerSystem << "system" << endl;
- 
+    
 //(number1.NumberToConvert^number2.NumberToConvert) -> (2) // 0 + 0 -> , 0 + 1 -> 1 , 1 + 0 -> 1 , 1 + 1 = 0 
 }
