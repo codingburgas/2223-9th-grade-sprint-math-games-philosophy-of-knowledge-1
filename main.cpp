@@ -16,8 +16,6 @@ public:
     }
 };
 
-//0001 & 0000
-//0000
 int BitwiseAndFunction()
 {
     return (number1.NumberToConvert & number2.NumberToConvert);
@@ -64,6 +62,84 @@ string decimalToBinary(string number)
  return num;
 }
 
+string hexadecimalToBinary(string number)
+{
+    string num = "";
+    int numberSize = number.size();
+    
+    for(int i = 0; i < numberSize; i++)
+      {
+        char asd = number[i];
+        switch(asd)
+          {
+            case '0':
+            num += "0000";
+            break;
+            
+            case '1':
+            num += "0001";
+            break;
+            
+            case '2':
+            num += "0010";
+            break;
+            
+            case '3':
+            num += "0011";
+            break;
+            
+            case '4':
+            num += "0100";
+            break;
+            
+            case '5':
+            num += "0101";
+            break;
+            
+            case '6':
+            num += "0110";
+            break;
+            
+            case '7':
+            num += "0111";
+            break;
+            
+            case '8':
+            num += "1000";
+            break;
+            
+            case '9':
+            num += "1001";
+            break;
+            
+            case 'A':
+            num += "1010";
+            break;
+            
+            case 'B':
+            num += "1011";
+            break;
+            
+            case 'C':
+            num += "1100";
+            break;
+            
+            case 'D':
+            num += "1101";
+            break;
+            
+            case 'E':
+            num += "1110";
+            break;
+
+            case 'F':
+            num += "1111";
+            break;
+          }
+      }
+  
+  return num;
+}
 
 
 //default_random_engine generator;
@@ -85,10 +161,6 @@ int main()
     int bitwiseOperationGenerator = rand() % 3; 
     string answerSystem = "";
     string answer = "";
-    
-        // (2) -> binary
-        // (10) -> decimal
-        // (16) -> hexadecimal
         
     switch (randomNumberGenerator)
     {
@@ -365,7 +437,8 @@ switch(bitwiseOperationGenerator)
     }
     else if(number1.System == "(16)")
     {
-
+        number1.NumberToConvert = hexadecimalToBinary(number1.NumberToConvert);
+        number2.NumberToConvert = hexadecimalToBinary(number2.NumberToConvert);
     }
     //other func
 //(number1.NumberToConvert^number2.NumberToConvert) -> (2) // 0 + 0 -> , 0 + 1 -> 1 , 1 + 0 -> 1 , 1 + 1 = 0 
