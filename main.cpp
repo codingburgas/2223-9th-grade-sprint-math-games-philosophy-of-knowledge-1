@@ -21,6 +21,11 @@ int BitwiseAndFunction()
 {
     return (number1.NumberToConvert & number2.NumberToConvert);
 }
+int BitwiseOrFunction()
+{
+    return (number1.NumberToConvert | number2.NumberToConvert);
+}
+
 
 //
 //default_random_engine generator;
