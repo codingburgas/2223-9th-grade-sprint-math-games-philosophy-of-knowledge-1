@@ -33,11 +33,39 @@ int BitwiseXorFunction()
     return (number1.NumberToConvert ^ number2.NumberToConvert);
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 1371c6b5e1cd1cfd6f101cde91a3aab9c4da6ed6
-//
+// this function makes 10 system into 2 system (n is from 10 system);
+string decimalToBinary(string number)
+{
+    string num="";
+    int remainder;
+    int numberToInt = stoi(number);
+
+    if(numberToInt == 0)
+    {
+        return "0";
+    }
+    while (numberToInt)
+    {
+        remainder = numberToInt % 2;
+         if(remainder)
+        {
+            num = '1' + num;
+        }
+
+        else
+        { 
+            num = '0' + num;
+        }
+         
+        numberToInt /= 2;
+    }
+    
+ return num;
+}
+
+
+
 //default_random_engine generator;
 //uniform_real_distribution<double> uniform_distance(1, 10.001);
 //std::random_device rd;
@@ -45,15 +73,12 @@ int BitwiseXorFunction()
     //mt19937 mt(rd());
     //stduniform_real_distribution<double> dist(1.0, 10.0);
 
+
 int main()
 {
     //note : to change the generator
     srand(time(NULL));
-<<<<<<< HEAD
     int randomNumberGenerator = rand() % 30;
-=======
-    int randomNumber = rand() % 30;
->>>>>>> 1371c6b5e1cd1cfd6f101cde91a3aab9c4da6ed6
     Number number1("", "");
     Number number2("", "");
     int answerSystemGenerator = rand() % 2; 
@@ -332,5 +357,16 @@ switch(bitwiseOperationGenerator)
         break;
     }
     
+    //other func
+    if(number1.System == "(10)")
+    {
+        number1.NumberToConvert = decimalToBinary(number1.NumberToConvert);
+        number2.NumberToConvert = decimalToBinary(number2.NumberToConvert);
+    }
+    else if(number1.System == "(16)")
+    {
+
+    }
+    //other func
 //(number1.NumberToConvert^number2.NumberToConvert) -> (2) // 0 + 0 -> , 0 + 1 -> 1 , 1 + 0 -> 1 , 1 + 1 = 0 
 }
