@@ -31,6 +31,10 @@ int BitwiseXorFunction()
     return (number1.NumberToConvert ^ number2.NumberToConvert);
 }
 
+int BitwiseComplementFunction()
+{
+    return (number1.NumberToConvert ~ number2.NumberToConvert);
+}
 
 //
 //default_random_engine generator;
