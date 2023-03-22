@@ -31,11 +31,6 @@ int BitwiseXorFunction()
     return (number1.NumberToConvert ^ number2.NumberToConvert);
 }
 
-int BitwiseComplementFunction()
-{
-    return (number1.NumberToConvert ~ number2.NumberToConvert);
-}
-
 //
 //default_random_engine generator;
 //uniform_real_distribution<double> uniform_distance(1, 10.001);
@@ -49,8 +44,8 @@ int main()
     //note : to change the generator
     srand(time(NULL));
     int randomNumber = rand() % 30;
-    Number number1("", "", "");
-    Number number2("", "", "");
+    Number number1("", "");
+    Number number2("", "");
     int answerSystemGenerator = rand() % 2; 
     
     string answerSystem = "";
