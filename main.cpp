@@ -33,7 +33,10 @@ int BitwiseXorFunction()
     return (number1.NumberToConvert ^ number2.NumberToConvert);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1371c6b5e1cd1cfd6f101cde91a3aab9c4da6ed6
 //
 //default_random_engine generator;
 //uniform_real_distribution<double> uniform_distance(1, 10.001);
@@ -46,7 +49,11 @@ int main()
 {
     //note : to change the generator
     srand(time(NULL));
+<<<<<<< HEAD
     int randomNumberGenerator = rand() % 30;
+=======
+    int randomNumber = rand() % 30;
+>>>>>>> 1371c6b5e1cd1cfd6f101cde91a3aab9c4da6ed6
     Number number1("", "");
     Number number2("", "");
     int answerSystemGenerator = rand() % 2; 
