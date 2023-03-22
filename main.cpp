@@ -17,6 +17,12 @@ public:
     }
 };
 
+int BitwiseAndFunction()
+{
+    return (number1.NumberToConvert & number2.NumberToConvert);
+}
+
+//
 //default_random_engine generator;
 //uniform_real_distribution<double> uniform_distance(1, 10.001);
 //std::random_device rd;
@@ -47,7 +53,7 @@ int main()
         number1.NumberToConvert = "1011"; // answ: 11, B
         number1.System = "(2)";
         number2.NumberToConvert = "0001";
-        number2.System = number1.System;?
+        number2.System = number1.System;
         break;
 
         case 1:
@@ -253,6 +259,8 @@ int main()
         number2.System = number1.System;
         break;
     }
+
+
 
     switch(answerSystemGenerator)
     {
