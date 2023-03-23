@@ -298,26 +298,27 @@ switch (randomNumberGenerator)
     }
 
 
-switch(bitwiseOperationGenerator)
-{
-    case 0:
-    cout << "Add these two numbers: ";
-    answer = BitwiseAndFunction();
-    break;
+    switch(bitwiseOperationGenerator)
+    {   
+        case 0:
+        cout << "Add these two numbers: ";
+        answer = BitwiseAndFunction();
+        break;
      
-    case 1:
-    cout << "Or these two numbers: ";
-    answer = BitwiseOrFunction();
-
-    break;
+        case 1:
+        cout << "Or these two numbers: ";
+        answer = BitwiseOrFunction();
+        break;
     
-    case 2:
-    cout << "XOR these two numbers: ";
-    answer = BitwiseXorFunction();
-    break;
+        case 2:
+        cout << "XOR these two numbers: ";
+        answer = BitwiseXorFunction();
+        break;
+    }
 }
- 
-    //other func
+
+void convertNumber
+{
     if(number1.System == "(2)")
     {
         convertedNum = binaryToDecimal(number1.NumberToConvert);
