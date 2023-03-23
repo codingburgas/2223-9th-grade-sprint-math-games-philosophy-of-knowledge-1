@@ -30,6 +30,30 @@ public:
     string userInput;
     getline(cin, userInput);
 
+    int hexadecimalToDecimal(string numberAsHexadecimal)
+{
+    int length = numberAsHexadecimal.size();
+    int base = 1;
+    int numberAsDecimal = 0;
+
+    for (int i = length - 1; i >= 0; i--)
+     {
+        if (numberAsHexadecimal[i] >= '0' && numberAsHexadecimal[i] <= '9')
+         {
+            numberAsDecimal += (int(numberAsHexadecimal[i]) - 48) * base;
+            base = base * 16;
+        }
+
+        else if (numberAsHexadecimal[i] >= 'A' && numberAsHexadecimal[i] <= 'F')
+         {
+            numberAsDecimal += (int(numberAsHexadecimal[i]) - 55) * base;
+ 
+            base = base * 16;
+        }
+    }
+    return numberAsDecimal;
+}
+
 int BitwiseAndFunction()
 {
     return (convertedNum & convertedNum2);
