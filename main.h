@@ -24,64 +24,25 @@ public:
 
     int convertedNum;
     int convertedNum2;
-    string answerSystem = "";
+
     string answer = "";
 
-    string userInput;
-    getline(cin, userInput);
-
-    int hexadecimalToDecimal(string numberAsHexadecimal)
-    {
-        int length = numberAsHexadecimal.size();
-        int base = 1;
-        int numberAsDecimal = 0;
-
-        for (int i = length - 1; i >= 0; i--)
-        {
-            if (numberAsHexadecimal[i] >= '0' && numberAsHexadecimal[i] <= '9')
-            {
-                numberAsDecimal += (int(numberAsHexadecimal[i]) - 48) * base;
-                base = base * 16;
-            }
-
-            else if (numberAsHexadecimal[i] >= 'A' && numberAsHexadecimal[i] <= 'F')
-            {
-                numberAsDecimal += (int(numberAsHexadecimal[i]) - 55) * base;
-                base = base * 16;
-            }
-        }   
-
-        return numberAsDecimal;
-    }
-
-int binaryToDecimal(string number)
+void BitwiseAndFunction()
 {
-    int num = stoi(number, 0, 2);
-    return num;
+    answer = (convertedNum & convertedNum2);
 }
 
-int BitwiseAndFunction()
+void BitwiseOrFunction()
 {
-    return (convertedNum & convertedNum2);
+    answer = (convertedNum | convertedNum2);
 }
 
-int BitwiseOrFunction()
+void BitwiseXorFunction()
 {
-    return (convertedNum | convertedNum2);
+    answer = (convertedNum ^ convertedNum2);
 }
 
-int BitwiseXorFunction()
-{
-    return (convertedNum ^ convertedNum2);
-}
-
-int binaryToDecimal(string number)
-{
-    int num = stoi(number, 0, 2);
-    return num;
-}
-
-void switchCases()
+void numberAssignment()
 {
     switch (randomNumberGenerator)
     {
@@ -296,8 +257,10 @@ void switchCases()
         number2.System = number1.System;
         break;
     }
+}
 
-
+void bitwiseOperationAssignment()
+{
     switch(bitwiseOperationGenerator)
     {   
         case 0:
@@ -317,6 +280,36 @@ void switchCases()
     }
 }
 
+int hexadecimalToDecimal(string numberAsHexadecimal)
+{
+    int length = numberAsHexadecimal.size();
+    int base = 1;
+    int numberAsDecimal = 0;
+
+    for (int i = length - 1; i >= 0; i--)
+    {
+        if (numberAsHexadecimal[i] >= '0' && numberAsHexadecimal[i] <= '9')
+        {
+            numberAsDecimal += (int(numberAsHexadecimal[i]) - 48) * base;
+            base = base * 16;
+        }
+
+        else if (numberAsHexadecimal[i] >= 'A' && numberAsHexadecimal[i] <= 'F')
+        {
+            numberAsDecimal += (int(numberAsHexadecimal[i]) - 55) * base;
+            base = base * 16;
+        }
+    }   
+
+    return numberAsDecimal;
+}
+
+int binaryToDecimal(string number)
+{
+    int num = stoi(number, 0, 2);
+    return num;
+}
+
 void convertNumber
 {
     if(number1.System == "(2)")
@@ -329,5 +322,20 @@ void convertNumber
     {
         convertedNum = hexadecimalToDecimal(number1.NumberToConvert);
         convertedNum2 = hexadecimalToDecimal(number2.NumberToConvert);
+    }
+}
+
+void userInputAndCheck()
+{
+    string userInput;
+    getline(cin, userInput);
+
+    if(userInput == answer)
+    {
+        cout << "You've answered correctly. Congrats!";
+    }
+    else
+    {
+        cout << "Incorrect. The answer is: " << answer; 
     }
 }
