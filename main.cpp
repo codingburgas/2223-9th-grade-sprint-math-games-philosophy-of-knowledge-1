@@ -14,132 +14,10 @@ public:
         NumberToConvert = numberToConvert;
         System = system;
     }
-};
-
-int BitwiseAndFunction()
-{
-    return (number1.NumberToConvert & number2.NumberToConvert);
-}
-
-int BitwiseOrFunction()
-{
-    return (number1.NumberToConvert | number2.NumberToConvert);
-}
-
-int BitwiseXorFunction()
-{
-    return (number1.NumberToConvert ^ number2.NumberToConvert);
-}
+};//
 
 
 // this function makes 10 system into 2 system (n is from 10 system);
-string decimalToBinary(string number)
-{
-    string num="";
-    int remainder;
-    int numberToInt = stoi(number);
-
-    if(numberToInt == 0)
-    {
-        return "0";
-    }
-    while (numberToInt)
-    {
-        remainder = numberToInt % 2;
-         if(remainder)
-        {
-            num = '1' + num;
-        }
-
-        else
-        { 
-            num = '0' + num;
-        }
-         
-        numberToInt /= 2;
-    }
-    
- return num;
-}
-
-string hexadecimalToBinary(string number)
-{
-    string num = "";
-    int numberSize = number.size();
-    
-    for(int i = 0; i < numberSize; i++)
-      {
-        char asd = number[i];
-        switch(asd)
-          {
-            case '0':
-            num += "0000";
-            break;
-            
-            case '1':
-            num += "0001";
-            break;
-            
-            case '2':
-            num += "0010";
-            break;
-            
-            case '3':
-            num += "0011";
-            break;
-            
-            case '4':
-            num += "0100";
-            break;
-            
-            case '5':
-            num += "0101";
-            break;
-            
-            case '6':
-            num += "0110";
-            break;
-            
-            case '7':
-            num += "0111";
-            break;
-            
-            case '8':
-            num += "1000";
-            break;
-            
-            case '9':
-            num += "1001";
-            break;
-            
-            case 'A':
-            num += "1010";
-            break;
-            
-            case 'B':
-            num += "1011";
-            break;
-            
-            case 'C':
-            num += "1100";
-            break;
-            
-            case 'D':
-            num += "1101";
-            break;
-            
-            case 'E':
-            num += "1110";
-            break;
-
-            case 'F':
-            num += "1111";
-            break;
-          }
-      }
-  
-  return num;
-}
 
 
 //default_random_engine generator;
@@ -153,15 +31,18 @@ string hexadecimalToBinary(string number)
 int main()
 {
     //note : to change the generator
-    srand(time(NULL));
-    int randomNumberGenerator = rand() % 30;
-    Number number1("", "");
-    Number number2("", "");
-    int answerSystemGenerator = rand() % 2; 
-    int bitwiseOperationGenerator = rand() % 3; 
-    string answerSystem = "";
-    string answer = "";
-        
+    // Number number1("", "");
+    // Number number2("", "");
+
+    // srand(time(NULL));
+    // int randomNumberGenerator = rand() % 30;
+    // int convertedNum;
+    // int bitwiseOperationGenerator = rand() % 3; 
+    // string answerSystem = "";
+    // string answer = "";
+    // string userInput;
+    // getline(cin, userInput);
+    
     switch (randomNumberGenerator)
     {
         
@@ -395,50 +276,17 @@ switch(bitwiseOperationGenerator)
     answer = BitwiseXorFunction();
     break;
 }
-
-    switch(answerSystemGenerator)
-    {
-        case 0:
-        if (number1.System == "(2)")
-        {
-            answerSystem = "(16)";
-        }
-        else if (number1.System == "(10)")
-        {
-            answerSystem = "(2)";
-        }
-        else if (number1.System == "(16)")
-        {
-            answerSystem = "(2)";
-        } 
-        break;
-        
-        case 1: 
-        if (number1.System == "(2)")
-        {
-            answerSystem = "(10)";
-        }
-        else if (number1.System == "(10)")
-        {
-            answerSystem = "(16)";
-        }
-        else if (number1.System == "(16)")
-        {
-            answerSystem = "(10)";
-        } 
-        break;
-    }
-    
+ 
     //other func
-    if(number1.System == "(10)")
+    if(number1.System == "(2)")
     {
-        number1.NumberToConvert = decimalToBinary(number1.NumberToConvert);
-        number2.NumberToConvert = decimalToBinary(number2.NumberToConvert);
+        convertedNum = binaryToDecimal(number1.NumberToConvert);
+        convertedNum = binaryToDecimal(number2.NumberToConvert);
     }
     else if(number1.System == "(16)")
     {
-        number1.NumberToConvert = hexadecimalToBinary(number1.NumberToConvert);
-        number2.NumberToConvert = hexadecimalToBinary(number2.NumberToConvert);
+        convertedNum = hexadecimalToDecimal(number1.NumberToConvert);
+        convertedNum = hexadecimalToDecimal(number2.NumberToConvert);
     }
     //other func
 //(number1.NumberToConvert^number2.NumberToConvert) -> (2) // 0 + 0 -> , 0 + 1 -> 1 , 1 + 0 -> 1 , 1 + 1 = 0 
