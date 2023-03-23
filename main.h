@@ -54,6 +54,12 @@ public:
     return numberAsDecimal;
 }
 
+int binaryToDecimal(string number)
+{
+    int num = stoi(number, 0, 2);
+    return num;
+}
+
 int BitwiseAndFunction()
 {
     return (convertedNum & convertedNum2);
