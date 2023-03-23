@@ -22,26 +22,25 @@ public:
     int randomNumberGenerator = rand() % 30;
     int bitwiseOperationGenerator = rand() % 3; 
 
-    int convertedNum;
+    int convertedNum1;
     int convertedNum2;
 
     string answer = "";
 
-void BitwiseAndFunction()
+int BitwiseAndFunction()
 {
-    answer = (convertedNum & convertedNum2);
+    return (convertedNum1 & convertedNum2);
+}
+int BitwiseOrFunction()
+{
+    return (convertedNum1 | convertedNum2);
+}
+int BitwiseXorFunction()
+{
+    return (convertedNum1 ^ convertedNum2);
 }
 
-void BitwiseOrFunction()
-{
-    answer = (convertedNum | convertedNum2);
-}
-
-void BitwiseXorFunction()
-{
-    answer = (convertedNum ^ convertedNum2);
-}
-
+//the great switch case
 void numberAssignment()
 {
     switch (randomNumberGenerator)
@@ -259,27 +258,6 @@ void numberAssignment()
     }
 }
 
-void bitwiseOperationAssignment()
-{
-    switch(bitwiseOperationGenerator)
-    {   
-        case 0:
-        cout << "Add these two numbers: ";
-        answer = BitwiseAndFunction();
-        break;
-     
-        case 1:
-        cout << "Or these two numbers: ";
-        answer = BitwiseOrFunction();
-        break;
-    
-        case 2:
-        cout << "XOR these two numbers: ";
-        answer = BitwiseXorFunction();
-        break;
-    }
-}
-
 int hexadecimalToDecimal(string numberAsHexadecimal)
 {
     int length = numberAsHexadecimal.size();
@@ -310,17 +288,35 @@ int binaryToDecimal(string number)
     return num;
 }
 
-void convertNumber
+void bitwiseOperationAssignment()
+{
+    switch(bitwiseOperationGenerator)
+    {   
+        case 0:
+        answer = BitwiseAndFunction();
+        break;
+     
+        case 1:
+        answer = BitwiseOrFunction();
+        break;
+    
+        case 2:
+        answer = BitwiseXorFunction();
+        break;
+    }
+}
+
+void convertNumber()
 {
     if(number1.System == "(2)")
     {
-        convertedNum = binaryToDecimal(number1.NumberToConvert);
+        convertedNum1 = binaryToDecimal(number1.NumberToConvert);
         convertedNum2 = binaryToDecimal(number2.NumberToConvert);
     }
 
     else if(number1.System == "(16)")
     {
-        convertedNum = hexadecimalToDecimal(number1.NumberToConvert);
+        convertedNum1 = hexadecimalToDecimal(number1.NumberToConvert);
         convertedNum2 = hexadecimalToDecimal(number2.NumberToConvert);
     }
 }
