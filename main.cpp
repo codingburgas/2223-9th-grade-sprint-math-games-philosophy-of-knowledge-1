@@ -16,23 +16,82 @@ public:
     }
 };
 
-//0001 & 0000
-//0000
+
 int BitwiseAndFunction()
 {
     return (number1.NumberToConvert & number2.NumberToConvert);
 }
-
 int BitwiseOrFunction()
 {
     return (number1.NumberToConvert | number2.NumberToConvert);
 }
-
 int BitwiseXorFunction()
-{
+{/
     return (number1.NumberToConvert ^ number2.NumberToConvert);
 }
-
+void bitOperationGenerator()
+{
+    switch(bitwiseOperationGenerator)
+{
+    case 0:
+    cout << "Add these two numbers: ";
+    if (number1.System == "(10)")
+    {
+        number1.NumberToConvert = decimalToBinary(number1.NumberToConvert);
+        number2.NumberToConvert = decimalToBinary(number2.NumberToConvert);
+        answer = BitwiseAndFunction();
+    }
+    else if (number1.System == "(16)")
+    {
+        number1.NumberToConvert = hexadecimalToBinary(number1.NumberToConvert);
+        number2.NumberToConvert = hexadecimalToBinary(number2.NumberToConvert);
+        answer = BitwiseAndFunction();
+    }
+    else {
+        cout << "Error in bitOperationGenerator";
+    }
+    
+    break;
+     
+    case 1:
+    cout << "Or these two numbers: ";
+    if (number1.System == "(10)")
+    {
+        number1.NumberToConvert = decimalToBinary(number1.NumberToConvert);
+        number2.NumberToConvert = decimalToBinary(number2.NumberToConvert);
+        answer = BitwiseOrFunction();
+    }
+    else if (number1.System == "(16)")
+    {
+        number1.NumberToConvert = hexadecimalToBinary(number1.NumberToConvert);
+        number2.NumberToConvert = hexadecimalToBinary(number2.NumberToConvert);
+        answer = BitwiseOrFunction();
+    }
+    else {
+        cout << "Error in bitOperationGenerator";
+    }
+    break;
+    
+    case 2:
+    cout << "XOR these two numbers: ";
+    if (number1.System == "(10)")
+    {
+        number1.NumberToConvert = decimalToBinary(number1.NumberToConvert);
+        number2.NumberToConvert = decimalToBinary(number2.NumberToConvert);
+        answer = BitwiseXorFunction();
+    }
+    else if (number1.System == "(16)")
+    {
+        number1.NumberToConvert = hexadecimalToBinary(number1.NumberToConvert);
+        number2.NumberToConvert = hexadecimalToBinary(number2.NumberToConvert);
+        answer = BitwiseXorFunction();
+    }
+    else {
+        cout << "Error in bitOperationGenerator";
+    }
+    break;
+}
+}
 
 // this function makes 10 system into 2 system (n is from 10 system);
 string decimalToBinary(string number)
@@ -63,280 +122,333 @@ string decimalToBinary(string number)
     
  return num;
 }
-
-
-
-//default_random_engine generator;
-//uniform_real_distribution<double> uniform_distance(1, 10.001);
-//std::random_device rd;
-//
-    //mt19937 mt(rd());
-    //stduniform_real_distribution<double> dist(1.0, 10.0);
-
-
-int main()
+//this funtion makes 16 system into 2 system
+string hexadecimalToBinary(string number)
 {
-    //note : to change the generator
-    srand(time(NULL));
-    int randomNumberGenerator = rand() % 30;
-    Number number1("", "");
-    Number number2("", "");
-    int answerSystemGenerator = rand() % 2; 
-    int bitwiseOperationGenerator = rand() % 3; 
-    string answerSystem = "";
-    string answer = "";
-    
-        // (2) -> binary
-        // (10) -> decimal
-        // (16) -> hexadecimal
-        
+    long int i = 0;
+
+    while (number[i]) {
+
+        switch (number[i]) {
+        case '0':
+            return "0000";
+            break;
+        case '1':
+            return "0001";
+            break;
+        case '2':
+            return "0010";
+            break;
+        case '3':
+            return "0011";
+            break;
+        case '4':
+            return "0100";
+            break;
+        case '5':
+            return "0101";
+            break;
+        case '6':
+            return "0110";
+            break;
+        case '7':
+            return "0111";
+            break;
+        case '8':
+            return "1000";
+            break;
+        case '9':
+            return "1001";
+            break;
+        case 'A':
+        case 'a':
+            return "1010";
+            break;
+        case 'B':
+        case 'b':
+            return "1011";
+            break;
+        case 'C':
+        case 'c':
+            return "1100";
+            break;
+        case 'D':
+        case 'd':
+            return "1101";
+            break;
+        case 'E':
+        case 'e':
+            return "1110";
+            break;
+        case 'F':
+        case 'f':
+            return << "1111";
+            break;
+        default:
+            return "\nInvalid hexadecimal digit ";
+        }
+        i++;
+    }
+}
+
+//this funtion assigns the two numbers
+void twoNumberGenerator()
+{
     switch (randomNumberGenerator)
     {
-        
-        case 0:
+
+    case 0:
         number1.NumberToConvert = "1011"; // answ: 11, B
         number1.System = "(2)";
         number2.NumberToConvert = "0001";
         number2.System = number1.System;
         break;
 
-        case 1:
+    case 1:
         number1.NumberToConvert = "0001 0111"; // answ: 23, 17
         number1.System = "(2)";
         number2.NumberToConvert = "0101";
         number2.System = number1.System;
         break;
 
-        case 2:
+    case 2:
         number1.NumberToConvert = "0010 0000"; // answ: 32, 20
         number1.System = "(2)";
         number2.NumberToConvert = "1001 0010";
         number2.System = number1.System;
         break;
 
-        case 3:
+    case 3:
         number1.NumberToConvert = "1011 1010"; // answ: 186, BA
         number1.System = "(2)";
         number2.NumberToConvert = "0001 1000";
         number2.System = number1.System;
         break;
 
-        case 4:
+    case 4:
         number1.NumberToConvert = "0110 111"; // answ: 43, 2B
         number1.System = "(2)";
         number2.NumberToConvert = "0001 1001";
         number2.System = number1.System;
         break;
 
-        case 5:
+    case 5:
         number1.NumberToConvert = "0110"; // answ: 6, 6 
         number1.System = "(2)";
         number2.NumberToConvert = "1000 1000";
         number2.System = number1.System;
         break;
 
-        case 6:
+    case 6:
         number1.NumberToConvert = "0001 1010 0011"; // answ: 419, 1A3
         number1.System = "(2)";
         number2.NumberToConvert = "1001 1001";
         number2.System = number1.System;
         break;
 
-        case 7:
+    case 7:
         number1.NumberToConvert = "1110"; // answ: 14, E
         number1.System = "(2)";
         number2.NumberToConvert = "1010";
         number2.System = number1.System;
         break;
 
-        case 8:
+    case 8:
         number1.NumberToConvert = "0001 0010 1111 1010"; // answ: 4858, 12FA
         number1.System = "(2)";
         number2.NumberToConvert = "1000 0110 0100 0100";
         number2.System = number1.System;
         break;
 
-        case 9:
+    case 9:
         number1.NumberToConvert = "10A8"; // answ: 0001 0000 1010 1000, 4264
         number1.System = "(16)";
         number2.NumberToConvert = "A";
         number2.System = number1.System;
         break;
 
-        case 10:
+    case 10:
         number1.NumberToConvert = "B"; // answ: 1011, 11
         number1.System = "(16)";
         number2.NumberToConvert = "F";
         number2.System = number1.System;
         break;
 
-        case 11:
+    case 11:
         number1.NumberToConvert = "6C"; // answ: 0110 1100, 108
         number1.System = "(16)";
         number2.NumberToConvert = "4A";
         number2.System = number1.System;
         break;
 
-        case 12:
+    case 12:
         number1.NumberToConvert = "6E"; // answ: 0110 1110, 110
         number1.System = "(16)";
         number2.NumberToConvert = "3A";
         number2.System = number1.System;
         break;
 
-        case 13:
+    case 13:
         number1.NumberToConvert = "9F"; // answ: 1001 1111, 159
         number1.System = "(16)";
         number2.NumberToConvert = "3C";
         number2.System = number1.System;
         break;
 
-        case 14:
+    case 14:
         number1.NumberToConvert = "A8"; // answ: 1010 1000, 168
         number1.System = "(16)";
         number2.NumberToConvert = "B3";
         number2.System = number1.System;
         break;
 
-        case 15:
+    case 15:
         number1.NumberToConvert = "BF"; // answ: 1011 1111, 191
         number1.System = "(16)";
         number2.NumberToConvert = "D2";
         number2.System = number1.System;
         break;
 
-        case 16:
+    case 16:
         number1.NumberToConvert = "64"; // answ: 0100 0000, 40
         number1.System = "(10)";
         number2.NumberToConvert = "23";
         number2.System = number1.System;
         break;
 
-        case 17:
+    case 17:
         number1.NumberToConvert = "150"; // answ: 1001 0110, 96
         number1.System = "(10)";
         number2.NumberToConvert = "12";
         number2.System = number1.System;
         break;
 
-        case 18:
+    case 18:
         number1.NumberToConvert = "14"; // answ: 1110, E
         number1.System = "(10)";
         number2.NumberToConvert = "334";
         number2.System = number1.System;
         break;
 
-        case 19:
+    case 19:
         number1.NumberToConvert = "5"; // answ: 0101, 5
         number1.System = "(10)";
         number2.NumberToConvert = "23";
         number2.System = number1.System;
         break;
 
-        case 20:
+    case 20:
         number1.NumberToConvert = "26"; // answ: 0001 1010, 1A
         number1.System = "(10)";
         number2.NumberToConvert = "4";
         number2.System = number1.System;
         break;
 
-        case 21:
+    case 21:
         number1.NumberToConvert = "3"; // answ: 0011, 3
         number1.System = "(10)";
         number2.NumberToConvert = "233";
         number2.System = number1.System;
         break;
 
-        case 22:
+    case 22:
         number1.NumberToConvert = "56"; // answ: 0011 1000, 38
         number1.System = "(10)";
         number2.NumberToConvert = "34";
         number2.System = number1.System;
         break;
 
-        case 23:
+    case 23:
         number1.NumberToConvert = "3"; // answ: 0011, 3
         number1.System = "(10)";
         number2.NumberToConvert = "54";
         number2.System = number1.System;
         break;
 
-        case 24:
+    case 24:
         number1.NumberToConvert = "25"; // answ: 0001 1001, 19
         number1.System = "(10)";
         number2.NumberToConvert = "34";
         number2.System = number1.System;
         break;
 
-        case 25:
+    case 25:
         number1.NumberToConvert = "35"; // answ: 0010 0011, 23
         number1.System = "(10)";
         number2.NumberToConvert = "45";
         number2.System = number1.System;
         break;
 
-        case 26:
+    case 26:
         number1.NumberToConvert = "66"; // answ: 0100 0010, 42
         number1.System = "(10)";
         number2.NumberToConvert = "56";
         number2.System = number1.System;
         break;
 
-        case 27:
+    case 27:
         number1.NumberToConvert = "54"; // answ: 0011 0110, 36
         number1.System = "(10)";
         number2.NumberToConvert = "45";
         number2.System = number1.System;
         break;
 
-        case 28:
+    case 28:
         number1.NumberToConvert = "34"; // answ: 0010 0010, 22
         number1.System = "(10)";
         number2.NumberToConvert = "545";
         number2.System = number1.System;
         break;
 
-        case 29:
+    case 29:
         number1.NumberToConvert = "45"; // answ: 0010 1101 , 2D
         number1.System = "(10)";
         number2.NumberToConvert = "344";
         number2.System = number1.System;
         break;
+    default: cout << "error in "
     }
 
-
-switch(bitwiseOperationGenerator)
-{
-    case 0:
-    cout << "Add these two numbers: ";
-    answer = BitwiseAndFunction();
-    break;
-     
-    case 1:
-    cout << "Or these two numbers: ";
-    answer = BitwiseOrFunction();
-
-    break;
-    
-    case 2:
-    cout << "XOR these two numbers: ";
-    answer = BitwiseXorFunction();
-    break;
 }
 
-    switch(answerSystemGenerator)
+int main()
+{
+    
+    srand(time(NULL));
+    int randomNumberGenerator = rand() % 30;
+    Number number1("", "");
+    Number number2("", "");
+    int answerSystemGenerator = rand() % 2; 
+    int bitwiseOperationGenerator = rand() % 3; 
+    
+    string answerSystem = "";
+    string answer = "";
+    
+        // (2) -> binary
+        // (10) -> decimal
+        // (16) -> hexadecimal
+    
+    //gives you the two numbers
+    twoNumberGenerator();
+    //gives you the operation
+    bitOperationGenerator();
+// generates the sysmem your answer must be in
+    /*switch (answerSystemGenerator)
     {
         case 0:
         if (number1.System == "(2)")
         {
+            cout << "your answer must be in 16 system" << endl;
             answerSystem = "(16)";
         }
         else if (number1.System == "(10)")
         {
+            cout << "your answer must be in 2 system" << endl;
             answerSystem = "(2)";
         }
         else if (number1.System == "(16)")
         {
+            cout << "your answer must be in 2 system" << endl;
             answerSystem = "(2)";
         } 
         break;
@@ -355,18 +467,20 @@ switch(bitwiseOperationGenerator)
             answerSystem = "(10)";
         } 
         break;
-    }
-    
-    //other func
-    if(number1.System == "(10)")
+    }*/
+    /*if(number1.System == "(10)")
     {
         number1.NumberToConvert = decimalToBinary(number1.NumberToConvert);
         number2.NumberToConvert = decimalToBinary(number2.NumberToConvert);
+        
     }
     else if(number1.System == "(16)")
     {
 
+    }*/
+    
+    while (true)
+    {
+
     }
-    //other func
-//(number1.NumberToConvert^number2.NumberToConvert) -> (2) // 0 + 0 -> , 0 + 1 -> 1 , 1 + 0 -> 1 , 1 + 1 = 0 
 }
